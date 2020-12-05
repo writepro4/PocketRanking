@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 void main() {
   runApp(App());
 }
@@ -16,18 +18,24 @@ class App extends StatelessWidget {
 
 class DashboardTwoPage extends StatelessWidget {
   static final String path = "lib/src/pages/dashboard/dash2.dart";
-  final TextStyle whiteText = TextStyle(color: Colors.white);
+  final TextStyle whiteText = TextStyle(color: Colors.black);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade800,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.black,
         elevation: 0,
-        title: Text("Dashboard"),
+        title: Text("내 waka 정보", style: TextStyle(color: Colors.white)),
         centerTitle: true,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(50),
+        )),
       ),
       body: _buildBody(context),
+      bottomNavigationBar: bottomNavigationBar(),
     );
   }
 
@@ -45,7 +53,7 @@ class DashboardTwoPage extends StatelessWidget {
                   children: <Widget>[
                     Container(
                       height: 190,
-                      color: Colors.blue,
+                      color: Colors.redAccent,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -53,10 +61,10 @@ class DashboardTwoPage extends StatelessWidget {
                             title: Text(
                               "9,850",
                               style:
-                              Theme.of(context).textTheme.display1.copyWith(
-                                color: Colors.white,
-                                fontSize: 24.0,
-                              ),
+                                  Theme.of(context).textTheme.display1.copyWith(
+                                        color: Colors.white,
+                                        fontSize: 24.0,
+                                      ),
                             ),
                             trailing: Icon(
                               FontAwesomeIcons.walking,
@@ -76,7 +84,7 @@ class DashboardTwoPage extends StatelessWidget {
                     const SizedBox(height: 10.0),
                     Container(
                       height: 120,
-                      color: Colors.green,
+                      color: Colors.blueAccent,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -84,10 +92,10 @@ class DashboardTwoPage extends StatelessWidget {
                             title: Text(
                               "70 bpm",
                               style:
-                              Theme.of(context).textTheme.display1.copyWith(
-                                color: Colors.white,
-                                fontSize: 24.0,
-                              ),
+                                  Theme.of(context).textTheme.display1.copyWith(
+                                        color: Colors.white,
+                                        fontSize: 24.0,
+                                      ),
                             ),
                             trailing: Icon(
                               FontAwesomeIcons.heartbeat,
@@ -113,7 +121,7 @@ class DashboardTwoPage extends StatelessWidget {
                   children: <Widget>[
                     Container(
                       height: 120,
-                      color: Colors.red,
+                      color: Colors.greenAccent,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -121,10 +129,10 @@ class DashboardTwoPage extends StatelessWidget {
                             title: Text(
                               "2,430",
                               style:
-                              Theme.of(context).textTheme.display1.copyWith(
-                                color: Colors.white,
-                                fontSize: 24.0,
-                              ),
+                                  Theme.of(context).textTheme.display1.copyWith(
+                                        color: Colors.white,
+                                        fontSize: 24.0,
+                                      ),
                             ),
                             trailing: Icon(
                               FontAwesomeIcons.fire,
@@ -144,7 +152,7 @@ class DashboardTwoPage extends StatelessWidget {
                     const SizedBox(height: 10.0),
                     Container(
                       height: 190,
-                      color: Colors.yellow,
+                      color: Colors.yellowAccent,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -152,10 +160,10 @@ class DashboardTwoPage extends StatelessWidget {
                             title: Text(
                               "15 kms",
                               style:
-                              Theme.of(context).textTheme.display1.copyWith(
-                                fontSize: 24.0,
-                                color: Colors.black,
-                              ),
+                                  Theme.of(context).textTheme.display1.copyWith(
+                                        fontSize: 24.0,
+                                        color: Colors.black,
+                                      ),
                             ),
                             trailing: Icon(
                               FontAwesomeIcons.road,
@@ -173,12 +181,32 @@ class DashboardTwoPage extends StatelessWidget {
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           )
         ],
       ),
     );
+  }
+
+  BottomNavigationBar bottomNavigationBar() {
+    return BottomNavigationBar(
+              currentIndex: 0,
+              items: [
+                BottomNavigationBarItem(
+                  label: "안녕",
+                  icon: Icon(Icons.home),
+                ),
+                BottomNavigationBarItem(
+                  label: "안녕",
+                  icon: Icon(Icons.account_balance),
+                ),
+                BottomNavigationBarItem(
+                  label: "워어",
+                  icon: Icon(Icons.account_balance),
+                )
+              ],
+            );
   }
 
   Widget _buildHeader() {
